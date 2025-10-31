@@ -1,0 +1,113 @@
+/* ======== Global Fix for iPhones ======== */
+
+
+/* ======== Navbar Base ======== */
+.Navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+  position: relative;
+  width: 100%;
+  z-index: 999;
+}
+
+/* ======== Menu ======== */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 60px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.nav-menu li {
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  transition: color 0.4s ease;
+}
+
+.nav-menu li:hover {
+  background: linear-gradient(90deg, #00bfff, #003f8c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-menu li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00bfff, #003f8c);
+  transition: width 0.4s ease;
+}
+
+.nav-menu li:hover::after {
+  width: 100%;
+}
+
+.anchor-link {
+  text-decoration: none;
+  color: white;
+}
+
+/* ======== Hamburger Icon ======== */
+.nav-icon {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 25px;
+  z-index: 1000;
+}
+
+/* ======== Responsive: Mobile ======== */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    flex-direction: column;
+    background: rgba(10, 10, 30, 0.98);
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+
+  .nav-icon {
+    display: block;
+  }
+
+  .nav-menu li {
+    font-size: 22px;
+  }
+}
+
+/* ======== Very Small Screens (iPhones SE, etc.) ======== */
+@media (max-width: 420px) {
+  .nav-menu li {
+    font-size: 18px;
+  }
+}
+
+/* ======== iPhone-Specific Overflow Fix ======== */
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
