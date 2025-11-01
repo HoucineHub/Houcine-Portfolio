@@ -1,19 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './About.css';
-import { 
-  FaReact, FaDatabase, FaJs, FaGithub, FaCss3Alt, FaBootstrap, FaPython
-} from "react-icons/fa";
+import { FaReact, FaDatabase, FaJs, FaGithub, FaCss3Alt, FaBootstrap, FaPython } from "react-icons/fa";
 import { SiLaravel } from "react-icons/si";
 import ofppt from "../../assets/OFPPT.png";
 import supmti from "../../assets/supmti.png";
- 
-function About() {
 
+function About() {
   const [projects, setProjects] = useState(0);
   const [technologies, setTechnologies] = useState(0);
   const [passion, setPassion] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const cubesRef = useRef(null);
+  const achievementsRef = useRef(null);
+  const [countStarted, setCountStarted] = useState(false);
 
-  
+  // === Animation for cubes on scroll ===
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (cubesRef.current) observer.observe(cubesRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  // === Animate values only when achievements are visible ===
   useEffect(() => {
     const animateValue = (setter, start, end, duration) => {
       let startTime = null;
@@ -26,10 +44,22 @@ function About() {
       requestAnimationFrame(step);
     };
 
-    animateValue(setProjects, 0, 5, 3000);       
-    animateValue(setTechnologies, 0, 5, 3000);   
-    animateValue(setPassion, 0, 100, 3000);
-  }, []);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !countStarted) {
+          setCountStarted(true);
+          animateValue(setProjects, 0, 5, 3000);
+          animateValue(setTechnologies, 0, 5, 3000);
+          animateValue(setPassion, 0, 100, 3000);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (achievementsRef.current) observer.observe(achievementsRef.current);
+
+    return () => observer.disconnect();
+  }, [countStarted]);
 
   return (
     <div id='about' className='about'>
@@ -45,7 +75,8 @@ function About() {
         </p>
       </div>
 
-      <div className="about-cubes">
+      {/* ANIMATED CARDS */}
+      <div className={`about-cubes ${visible ? 'show-cubes' : ''}`} ref={cubesRef}>
         <div className="cube">
           <h3>My Education</h3>
           <p>
@@ -94,8 +125,8 @@ function About() {
         </div>
       </div>
 
-      
-      <div className='about-achievements'>
+      {/* ACHIEVEMENTS COUNTERS */}
+      <div className='about-achievements' ref={achievementsRef}>
         <div className="about-achievement">
           <h1>{projects}+</h1>
           <p>ACADEMIC PROJECTS BUILT & DEPLOYED</p>
@@ -109,7 +140,7 @@ function About() {
         <div className="about-achievement">
           <h1>{passion}%</h1>
           <p>PASSION FOR LEARNING</p>
-        </div>
+        </div> 
       </div>
     </div>
   );
