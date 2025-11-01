@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './Hero.css';
 import houcine from '../../assets/houcine.jpg';
+import cvFile from '../../assets/CV_EL_HOUCINE_ASSAD.png';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Typed from 'typed.js';
 
@@ -12,7 +13,7 @@ function Hero() {
       strings: [
         "I am a young graduate with a professional bachelor's degree in Computer Systems Engineering (Bac+3), with a solid academic background and a strong passion for new technologies."
       ],
-      typeSpeed: 15, // slower for readable paragraph animation
+      typeSpeed: 35, // slower for readable paragraph animation
       backSpeed: 0,  // no backspace effect
       showCursor: true,
       cursorChar: '|',
@@ -39,7 +40,7 @@ function Hero() {
           </AnchorLink>
         </div>
         <div className="hero-cv">
-          <a href="/CV.pdf" download="El_Houcine_Assad_CV.pdf">
+          <a href={cvFile} download="CV_EL_HOUCINE_ASSAD.png">
             <span>Download CV!</span>
           </a>
         </div>

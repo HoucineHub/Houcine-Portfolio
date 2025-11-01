@@ -47,7 +47,7 @@ function Work() {
         prevIndex === 0 ? works.length - 1 : prevIndex - 1
       );
       setFade(false);
-    }, 300);
+    }, 300); 
   };
 
   return (

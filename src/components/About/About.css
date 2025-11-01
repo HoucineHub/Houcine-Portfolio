@@ -102,6 +102,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 2px solid transparent;
   border-image: linear-gradient(45deg, #4bc4ec, #115dc1) 1;
+  border-radius: 16px;
 }
 
 .cube h3 {
