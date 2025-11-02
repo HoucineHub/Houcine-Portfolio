@@ -52,7 +52,7 @@ function Work() {
 
   return (
     <div id="work" className="work-container">
-      <h1 className="work-title">My Latest Work :</h1>
+      <h1 className="work-title">My Latest Work :</h1> 
       <p className="work-description">
         Explore some of the projects I’ve developed using modern web technologies.  
         Each one reflects my creativity, problem-solving, and growing experience in full-stack development.

@@ -5,7 +5,7 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/
 function Contact() {
   const [success, setSuccess] = useState(false);
 
-  const onSubmit = async (event) => {
+  const onSubmit = async (event) => { 
     event.preventDefault();
     const formData = new FormData(event.target);
     formData.append("access_key", "ae01fe13-51a6-4d6a-9516-5137d171ffe5");

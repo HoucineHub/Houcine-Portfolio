@@ -6,9 +6,9 @@
     gap: 50px;
     margin: 70px 170px;
     overflow-x: hidden;
-    /* Prevent horizontal scroll on small screens */
 }
 
+/* ===== TITLE ===== */
 .Services-title {
     position: relative;
     text-align: center;
@@ -18,13 +18,13 @@
     font-size: 60px;
     font-weight: 500;
     background: linear-gradient(to right, #4bc4ec, #115dc1);
-    background-clip: text;
+    background-clip: text; 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
 
-/* Grid layout for desktop */
+/* ===== GRID ===== */
 .Services-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -32,7 +32,7 @@
     margin-bottom: 80px;
 }
 
-/* Service card */
+/* ===== SERVICE CARD ===== */
 .service-format {
     display: flex;
     flex-direction: column;
@@ -72,6 +72,7 @@
     max-width: 300px;
 }
 
+/* ===== READ MORE ===== */
 .services-readmore {
     display: flex;
     gap: 20px;
@@ -79,6 +80,7 @@
     margin-top: 20px;
 }
 
+/* ===== HOVER EFFECT ===== */
 .service-format:hover {
     border: 2px solid rgba(0, 200, 255, 0.8);
     background-image: linear-gradient(to right, rgba(0, 191, 255, 0.7), rgba(0, 63, 140, 0.7));
@@ -87,8 +89,8 @@
     transition: all 0.4s ease;
 }
 
-/* Responsive design */
-/* Tablets (portrait and landscape) */
+/* ===== RESPONSIVE DESIGN ===== */
+/* Tablets */
 @media (max-width: 1024px) {
     .Services {
         margin: 60px 80px;
@@ -117,7 +119,7 @@
     }
 }
 
-/* Mobile (iPhones and small screens) */
+/* Mobile */
 @media (max-width: 768px) {
     .Services {
         margin: 50px 30px;
@@ -158,7 +160,7 @@
     }
 }
 
-/* Very small phones (iPhone SE, etc.) */
+/* Very small phones */
 @media (max-width: 480px) {
     .Services {
         margin: 40px 20px;
@@ -180,4 +182,29 @@
     .service-format p {
         font-size: 14px;
     }
+}
+
+/* ========================================================= */
+/* =============== LIGHT MODE OVERRIDES ===================== */
+/* ========================================================= */
+body.light-mode .service-format {
+    background-color: #ffffff;
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #4bc4ec, #115dc1) 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Paragraphs and readmore text in black */
+body.light-mode .service-format p,
+body.light-mode .services-readmore p {
+    color: #000000;
+}
+
+/* Keep hover the same — disable background change */
+body.light-mode .service-format:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-image: linear-gradient(45deg, #4bc4ec, #115dc1) 1;
 }

@@ -48,7 +48,7 @@ function About() {
       (entries) => {
         if (entries[0].isIntersecting && !countStarted) {
           setCountStarted(true);
-          animateValue(setProjects, 0, 5, 3000);
+          animateValue(setProjects, 0, 5, 3000); 
           animateValue(setTechnologies, 0, 5, 3000);
           animateValue(setPassion, 0, 100, 3000);
         }

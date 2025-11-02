@@ -1,12 +1,11 @@
 /* ======== Global Fix for iPhones ======== */
 
-
 /* ======== Navbar Base ======== */
 .Navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px 0;
+  padding: 25px 0; 
   position: relative;
   width: 100%;
   z-index: 999;
@@ -68,6 +67,22 @@
   z-index: 1000;
 }
 
+/* ======== Theme Toggle Button ======== */
+.theme-toggle {
+  position: absolute;
+  right: 80px;
+  top: 25px;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg);
+}
+
 /* ======== Responsive: Mobile ======== */
 @media (max-width: 768px) {
   .nav-menu {
@@ -96,6 +111,11 @@
   .nav-menu li {
     font-size: 22px;
   }
+
+  .theme-toggle {
+    right: 70px;
+    top: 25px;
+  }
 }
 
 /* ======== Very Small Screens (iPhones SE, etc.) ======== */
@@ -109,5 +129,54 @@
 @supports (-webkit-touch-callout: none) {
   html, body {
     overflow-x: hidden;
+  }
+}
+
+/* ======== Light & Dark Modes ======== */
+body.dark-mode {
+  background-color: #0a0a1a;
+  color: white;
+}
+
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+body.light-mode .anchor-link {
+  color: black;
+}
+body.light-mode .anchor-link:hover {
+  color: #0055cc;
+}
+
+body.light-mode .nav-menu li:hover {
+  -webkit-text-fill-color: initial;
+  color: #0055cc;
+}
+
+body.light-mode .theme-toggle {
+  color: #222;
+}
+body.light-mode .nav-icon {
+    color: #000; /* Black icon in light mode */
+  }
+/* ======== Light Mode - iPhone (414x896) Specific ======== */
+@media (max-width: 414px) and (max-height: 896px) {
+  
+
+  body.light-mode .nav-menu {
+    background: #111; /* Dark background for white links */
+  }
+
+  body.light-mode .nav-menu li {
+    color: #fff; /* White text for better contrast */
+  }
+
+  body.light-mode .nav-menu li:hover {
+    background: linear-gradient(to right, #4bc4ec, #115dc1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.05);
   }
 }

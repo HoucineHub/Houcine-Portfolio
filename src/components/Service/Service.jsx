@@ -8,7 +8,7 @@ function Service() {
     <div id='services' className='Services'>
       <div className="Services-title">
         <h1>My Services :</h1>
-      </div>
+      </div> 
       <div className="Services-container">
         {serviceData.map((service,index)=>{
             return <div key={index} className='service-format'>

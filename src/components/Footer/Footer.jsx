@@ -8,7 +8,7 @@ function Footer() {
         <div className="footer-top">
             <div className="footer-top-left">
                 <h1>EL HOUCINE ASSAD</h1>
-                <p>
+                <p> 
                   I am a young graduate with a professional bachelor's degree in Computer Systems Engineering (Bac+3), with a solid academic background and a strong passion for new technologies.
                 </p>
             </div>

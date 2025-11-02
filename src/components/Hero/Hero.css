@@ -12,6 +12,7 @@
   height: 220px;
   object-fit: cover;
   border-radius: 50%;
+  border: 4px solid black; /* ✅ Black border added */
 }
 
 .hero h1 {
@@ -35,12 +36,17 @@
   text-align: center;
   font-size: 24px;
   line-height: 40px;
-  color: #ddd;
+  color: #ddd; /* Default for dark mode */
   min-height: 120px; /* prevents layout jumping while typing */
   white-space: pre-wrap; /* keeps natural wrapping */
   overflow: hidden;
   position: relative;
   margin-top: 10px;
+}
+
+/* ✅ Light mode fix for paragraph */
+body.light-mode .animated-text {
+  color: #000; /* black text in light mode */
 }
 
 /* Blinking cursor from Typed.js */
@@ -239,7 +245,7 @@
   .hero-connect,
   .hero-cv span {
     padding: 10px 25px;
-    font-size: 14px;
+    font-size: 14px; 
   }
 
   .typed-cursor {

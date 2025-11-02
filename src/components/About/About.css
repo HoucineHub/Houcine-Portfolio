@@ -97,7 +97,7 @@
 
 /* Hover effect */
 .cube:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); 
   box-shadow: 0 12px 35px rgba(75, 196, 236, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 2px solid transparent;
@@ -173,6 +173,13 @@
   font-weight: 500;
   max-width: 240px;
   color: #fff;
+}
+
+/* ✅ Light Mode Adjustments */
+
+
+body.light-mode .about-achievement p {
+  color: #111; /* Make small descriptions darker for readability */
 }
 
 /* Vertical line between achievements */

@@ -7,7 +7,7 @@ import Typed from 'typed.js';
 
 function Hero() {
   const typedTextRef = useRef(null);
-
+ 
   useEffect(() => {
     const typed = new Typed(typedTextRef.current, {
       strings: [
