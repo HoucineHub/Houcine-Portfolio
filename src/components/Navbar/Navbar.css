@@ -144,7 +144,10 @@ body.light-mode {
 }
 
 body.light-mode .anchor-link {
-  color: black;
+  background: linear-gradient(to right, #4bc4ec, #115dc1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 body.light-mode .anchor-link:hover {
   color: #0055cc;

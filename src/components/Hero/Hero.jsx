@@ -9,19 +9,22 @@ function Hero() {
   const typedTextRef = useRef(null);
  
   useEffect(() => {
-    const typed = new Typed(typedTextRef.current, {
-      strings: [
-        "I am a young graduate with a professional bachelor's degree in Computer Systems Engineering (Bac+3), with a solid academic background and a strong passion for new technologies."
-      ],
-      typeSpeed: 35, // slower for readable paragraph animation
-      backSpeed: 0,  // no backspace effect
-      showCursor: true,
-      cursorChar: '|',
-      loop: false,
-    });
+  const typed = new Typed(typedTextRef.current, {
+    strings: [
+      "I am a young graduate with a professional bachelor's degree in Computer Systems Engineering (Bac+3), with a solid academic background and a strong passion for new technologies.",
+      "I enjoy building web applications using modern technologies like React, Laravel...",
+      "I am constantly learning new technologies to improve my skills.",
+      "I am always eager to learn, improve my skills, and contribute to innovative projects."
+    ],
+    typeSpeed: 35,
+    backSpeed: 0, 
+    showCursor: true,
+    cursorChar: '|',
+    loop: true,
+  });
 
-    return () => typed.destroy();
-  }, []);
+  return () => typed.destroy();
+}, []);
 
   return (
     <div id='home' className='hero'>
